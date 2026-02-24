@@ -578,6 +578,8 @@ void contoh_modul3() {
  *  Soal 1: Fungsi rekursif untuk N! (N faktorial).
  *          Input : 5
  *          Output: 120
+ * 
+ * 
  *
  *  Soal 2: Deret 1, 5, 14, 30, ... Fungsi rekursif untuk
  *          menentukan bilangan ke-n.
@@ -597,3 +599,78 @@ int main() {
     contoh_modul3();
     return 0;
 }
+
+*Answer:* 
+
+1. Soal 1: Fungsi rekursif untuk N! (N faktorial).
+         Input : 5
+         Output: 120
+ 
+ 
+ Answer : https://www.programiz.com/online-compiler/4CgQKIerwpGCc
+ 
+ #include <stdio.h>
+
+int faktorial(int n) {
+    if (n <= 1) return 1;
+    return n * faktorial(n - 1);
+}
+
+int main() {
+    int n = 5;                 
+    printf("%d\n", faktorial(n));
+    return 0;
+}
+
+2.   Soal 2: Deret 1, 5, 14, 30, ... Fungsi rekursif untuk
+         menentukan bilangan ke-n.
+          Input : 2
+         Output: 5
+
+
+Answer : https://www.programiz.com/online-compiler/15rLdRTgfVhUZ
+
+ #include <stdio.h>
+
+int deret(int n) {
+    if (n == 1) return 1;
+    return deret(n - 1) + n * n;
+}
+
+int main() {
+    int n = 2;                 
+    printf("%d\n", deret(n));
+    return 0;
+}
+
+  Soal 3: Fungsi untuk mencari nilai terbesar dan terkecil
+         dari array A dengan N bilangan.
+        Input : 5 / 1 2 3 4 5
+        Output: max: 5, min: 1
+
+
+Answer : https://www.programiz.com/online-compiler/4V4ShCh9LGD07
+
+ #include <stdio.h>
+
+void cari_min_max(int arr[], int n, int *minVal, int *maxVal) {
+    *minVal = arr[0];
+    *maxVal = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < *minVal) *minVal = arr[i];
+        if (arr[i] > *maxVal) *maxVal = arr[i];
+    }
+}
+
+int main() {
+    int n = 5;                         
+    int arr[] = {1, 2, 3, 4, 5};        
+
+    int mn, mx;
+    cari_min_max(arr, n, &mn, &mx);
+
+    printf("max: %d, min: %d\n", mx, mn);
+    return 0;
+}
+
